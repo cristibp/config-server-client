@@ -1,0 +1,22 @@
+server:
+  port: 8886
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          repos:
+            dev:
+              pattern:
+                - '*dev*'
+              uri: https://github.com/cristibp/spring-cloud-config-git-sources-dev.git
+            test:
+              pattern:
+                - '*test*'
+              uri: https://github.com/cristibp/spring-cloud-config-git-sources-test.git
+        bootstrap: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
